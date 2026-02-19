@@ -23,12 +23,11 @@ const industries = [
 ];
 
 const volumeRanges = [
-  "Under $10k",
-  "$10k - $25k",
-  "$25k - $50k",
-  "$50k - $100k",
-  "$100k - $250k",
-  "$250k+",
+  "Just getting started",
+  "Growing steadily",
+  "Scaling quickly",
+  "High volume",
+  "Enterprise",
 ];
 
 interface ContactFormProps {
@@ -38,8 +37,9 @@ interface ContactFormProps {
 }
 
 export function ContactForm({
-  title = "Get Your Custom Rate",
-  description = "Send us your details and we will build a custom rate structure within 24 hours.",
+  title = "Request your custom quote",
+  description =
+    "Share a few details and we will craft a pricing proposal tailored to your business.",
   className,
 }: ContactFormProps) {
   const [formState, setFormState] = useState({
@@ -57,10 +57,7 @@ export function ContactForm({
   );
   const [error, setError] = useState<string | null>(null);
 
-  const handleChange = (
-    field: keyof typeof formState,
-    value: string
-  ) => {
+  const handleChange = (field: keyof typeof formState, value: string) => {
     setFormState((prev) => ({ ...prev, [field]: value }));
   };
 
@@ -96,9 +93,7 @@ export function ContactForm({
       });
     } catch (err) {
       setStatus("error");
-      setError(
-        err instanceof Error ? err.message : "Something went wrong."
-      );
+      setError(err instanceof Error ? err.message : "Something went wrong.");
     }
   };
 
@@ -112,7 +107,7 @@ export function ContactForm({
         {status === "success" ? (
           <div className="rounded-xl bg-ocean/10 p-6 text-center">
             <div className="text-lg font-semibold">
-              We&apos;ll have your custom rate structure within 24 hours.
+              We&apos;re reviewing your details now.
             </div>
             <p className="mt-2 text-sm text-navy/70">
               A Walrus Payments specialist will reach out shortly.

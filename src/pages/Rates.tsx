@@ -4,109 +4,164 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 
-const rateCards = [
+const pricingValues = [
   {
-    title: "Restaurants",
-    rate: "Card present 1.95% + $0.10",
-    secondary: "Card not present 2.45% + $0.15",
+    title: "Custom strategy",
+    description:
+      "We design pricing around your ticket size, volume, and risk profile. No two businesses look the same — neither should their processing plan.",
   },
   {
-    title: "Laundromats / Coin-Op",
-    rate: "Flat rate 2.2% + $0.10",
-    secondary: "No monthly minimums",
+    title: "Transparent statements",
+    description:
+      "Clear line items, no mysterious fees, and a statement review that reads like a playbook.",
   },
   {
-    title: "Medical / Dental",
-    rate: "2.1% + $0.10",
-    secondary: "HIPAA-compliant processing",
-  },
-  {
-    title: "Retail",
-    rate: "1.95% + $0.10",
-    secondary: "Next-day funding",
-  },
-  {
-    title: "E-commerce",
-    rate: "2.4% + $0.15",
-    secondary: "Fraud protection included",
-  },
-  {
-    title: "Professional Services",
-    rate: "2.3% + $0.10",
-    secondary: "Custom invoicing support",
+    title: "Concierge support",
+    description:
+      "A named specialist who understands your business and keeps your setup sharp.",
   },
 ];
 
-const comparison = [
-  { provider: "Walrus Payments", rate: "1.95% + 10¢", highlight: true },
-  { provider: "Square", rate: "2.6% + 10¢" },
-  { provider: "Stripe", rate: "2.9% + 30¢" },
-  { provider: "Toast", rate: "2.49% + 15¢" },
-  { provider: "Clover", rate: "2.3% + 10¢" },
+const industries = [
+  {
+    title: "Restaurants & hospitality",
+    detail:
+      "Tipping workflows, table-side payments, and hardware that feels premium.",
+  },
+  {
+    title: "Health & wellness",
+    detail:
+      "Secure processing with a tone that builds patient trust.",
+  },
+  {
+    title: "Retail & boutique",
+    detail:
+      "Unified in-store and online experiences with sleek checkout flows.",
+  },
+  {
+    title: "Professional services",
+    detail:
+      "Invoices, retainers, and recurring billing that look polished.",
+  },
+];
+
+const faq = [
+  {
+    question: "Why don’t you publish rates?",
+    answer:
+      "Because your business deserves better than a one-size-fits-all price list. We build a rate structure after understanding your volume, risk, and operations.",
+  },
+  {
+    question: "How fast can I get a quote?",
+    answer:
+      "We move quickly. Share a recent statement or a few details and we’ll return a tailored proposal with clear next steps.",
+  },
+  {
+    question: "Do you support modern hardware and online payments?",
+    answer:
+      "Yes — we cover premium terminals, online checkout, and omnichannel setups designed to look cohesive.",
+  },
 ];
 
 export function RatesPage() {
   return (
-    <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6">
-      <div className="space-y-4">
-        <h1 className="text-4xl font-semibold">Rates Built for Your Industry</h1>
-        <p className="text-lg text-navy/70">
-          These are starting rates — we customize based on volume. Get your
-          custom quote in 24 hours.
-        </p>
-      </div>
+    <div className="bg-slate-950 text-white">
+      <section className="mx-auto w-full max-w-6xl px-4 pb-12 pt-16 sm:px-6">
+        <div className="space-y-5">
+          <p className="text-sm uppercase tracking-[0.3em] text-[#06D6A0]">
+            Pricing philosophy
+          </p>
+          <h1 className="text-4xl font-semibold sm:text-5xl">
+            Rates built around your business — not a template.
+          </h1>
+          <p className="text-lg text-white/70">
+            We don’t post public rate cards. Instead, we craft pricing that
+            mirrors your volume, ticket size, and risk profile. The result feels
+            refreshingly personal and quietly powerful.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <Button asChild size="lg" className="bg-[#06D6A0] text-slate-950 hover:bg-[#0CEBB2]">
+              <Link to="/contact">Request a custom quote</Link>
+            </Button>
+            <Button asChild variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
+              <Link to="/about">Meet the team</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
 
-      <div className="mt-10 grid gap-6 md:grid-cols-2">
-        {rateCards.map((card) => (
-          <Card key={card.title} className="border-navy/10">
-            <CardHeader>
-              <CardTitle>{card.title}</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-2">
-              <p className="text-sm font-semibold text-navy">{card.rate}</p>
-              <p className="text-sm text-navy/70">{card.secondary}</p>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
+      <section className="mx-auto w-full max-w-6xl px-4 pb-16 sm:px-6">
+        <div className="grid gap-6 md:grid-cols-3">
+          {pricingValues.map((item) => (
+            <Card key={item.title} className="glass-card border-white/10">
+              <CardHeader>
+                <CardTitle className="text-white">{item.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-white/70">{item.description}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
 
-      <Separator className="my-12" />
+      <Separator className="bg-white/10" />
 
-      <div className="space-y-4">
-        <h2 className="text-2xl font-semibold">Rate comparison</h2>
-        <p className="text-sm text-navy/70">
-          Walrus vs the big names. Lower rates mean thousands back in your
-          pocket.
-        </p>
-      </div>
-
-      <div className="mt-6 overflow-hidden rounded-xl border border-navy/10">
-        <table className="w-full text-left text-sm">
-          <thead className="bg-fog text-navy">
-            <tr>
-              <th className="px-4 py-3 font-semibold">Provider</th>
-              <th className="px-4 py-3 font-semibold">Rate</th>
-            </tr>
-          </thead>
-          <tbody>
-            {comparison.map((row) => (
-              <tr
-                key={row.provider}
-                className={row.highlight ? "bg-ocean/10" : "bg-white"}
-              >
-                <td className="px-4 py-3 font-medium">{row.provider}</td>
-                <td className="px-4 py-3 text-navy/70">{row.rate}</td>
-              </tr>
+      <section className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6">
+        <div className="space-y-8">
+          <div className="space-y-4">
+            <h2 className="text-3xl font-semibold">Industry-ready, brand-aligned.</h2>
+            <p className="text-white/70">
+              Your pricing strategy should respect your brand experience. We
+              tailor solutions for businesses where every detail matters.
+            </p>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2">
+            {industries.map((industry) => (
+              <Card key={industry.title} className="glass-card border-white/10">
+                <CardContent className="space-y-2 pt-6">
+                  <p className="text-lg font-semibold text-white">{industry.title}</p>
+                  <p className="text-sm text-white/70">{industry.detail}</p>
+                </CardContent>
+              </Card>
             ))}
-          </tbody>
-        </table>
-      </div>
+          </div>
+        </div>
+      </section>
 
-      <div className="mt-10">
-        <Button asChild variant="secondary" size="lg">
-          <Link to="/contact">Get Custom Rate Quote</Link>
-        </Button>
-      </div>
+      <section className="bg-slate-900 px-4 py-16 sm:px-6">
+        <div className="mx-auto w-full max-w-6xl space-y-8">
+          <div className="space-y-4">
+            <p className="text-sm uppercase tracking-[0.3em] text-[#06D6A0]">
+              Questions, answered
+            </p>
+            <h2 className="text-3xl font-semibold">The details, without the noise.</h2>
+          </div>
+          <div className="grid gap-6 md:grid-cols-3">
+            {faq.map((item) => (
+              <Card key={item.question} className="glass-card border-white/10">
+                <CardContent className="space-y-3 pt-6">
+                  <p className="text-sm font-semibold text-white">{item.question}</p>
+                  <p className="text-sm text-white/70">{item.answer}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          <div className="flex flex-wrap items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-6">
+            <div className="flex-1 space-y-2">
+              <p className="text-lg font-semibold text-white">Want your quote?</p>
+              <p className="text-sm text-white/70">
+                Bring a recent statement or tell us how you run payments. We’ll
+                return a tailored proposal that respects your brand and your
+                margins.
+              </p>
+            </div>
+            <Button asChild className="bg-[#06D6A0] text-slate-950 hover:bg-[#0CEBB2]">
+              <Link to="/contact">Start the conversation</Link>
+            </Button>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

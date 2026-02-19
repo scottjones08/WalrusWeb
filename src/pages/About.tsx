@@ -12,9 +12,10 @@ export function AboutPage() {
           </p>
           <p className="text-sm text-navy/70">
             We partner with Finix for enterprise-grade payments infrastructure,
-            delivering a 1.8% cost basis that lets us pass real savings to
-            merchants. Based in Richmond, Virginia, we support merchants
-            nationwide with hands-on onboarding and transparent pricing.
+            giving merchants access to pricing that is thoughtful, transparent,
+            and built to protect their margins. Based in Richmond, Virginia, we
+            support merchants nationwide with hands-on onboarding and clear
+            guidance.
           </p>
         </div>
         <Card className="border-navy/10">
