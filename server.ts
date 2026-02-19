@@ -248,7 +248,7 @@ if (NODE_ENV === "production") {
     }
   });
 
-  app.get("*", async (_req, res) => {
+  app.get("/{*path}", async (_req, res) => {
     res.sendFile(path.join(distDir, "index.html"));
   });
 }
