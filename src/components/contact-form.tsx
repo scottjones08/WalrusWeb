@@ -99,17 +99,20 @@ export function ContactForm({
 
   return (
     <section className={className}>
-      <div className="rounded-2xl border border-navy/10 bg-white p-8 shadow-sm">
-        <div className="mb-6">
-          <h2 className="text-2xl font-semibold">{title}</h2>
-          <p className="mt-2 text-sm text-navy/70">{description}</p>
+      <div className="rounded-3xl border border-white/10 bg-slate-950/60 p-8 shadow-2xl backdrop-blur">
+        <div className="mb-6 space-y-2">
+          <p className="text-xs uppercase tracking-[0.4em] text-[#06D6A0]">
+            Concierge intake
+          </p>
+          <h2 className="text-2xl font-semibold text-white">{title}</h2>
+          <p className="text-sm text-white/70">{description}</p>
         </div>
         {status === "success" ? (
-          <div className="rounded-xl bg-ocean/10 p-6 text-center">
-            <div className="text-lg font-semibold">
+          <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
+            <div className="text-lg font-semibold text-white">
               We&apos;re reviewing your details now.
             </div>
-            <p className="mt-2 text-sm text-navy/70">
+            <p className="mt-2 text-sm text-white/70">
               A Walrus Payments specialist will reach out shortly.
             </p>
           </div>
@@ -220,9 +223,13 @@ export function ContactForm({
               />
             </div>
             {status === "error" && (
-              <p className="text-sm text-red-600">{error}</p>
+              <p className="text-sm text-red-400">{error}</p>
             )}
-            <Button type="submit" variant="secondary" className="w-full">
+            <Button
+              type="submit"
+              size="lg"
+              className="w-full bg-[#06D6A0] text-slate-950 hover:bg-[#0CEBB2]"
+            >
               {status === "loading" ? "Submitting..." : "Submit"}
             </Button>
           </form>

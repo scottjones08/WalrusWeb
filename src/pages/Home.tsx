@@ -6,6 +6,11 @@ import { ContactForm } from "@/components/contact-form";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0 },
+};
+
 const pillars = [
   {
     title: "Pricing with intent",
@@ -113,7 +118,14 @@ export function HomePage() {
           </div>
 
           <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr]">
-            <div className="space-y-6">
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={fadeUp}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="space-y-6"
+            >
               <h1 className="text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
                 Payments that feel custom-crafted.
               </h1>
@@ -123,15 +135,14 @@ export function HomePage() {
                 just a private quote that makes sense.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Button asChild size="lg" className="bg-[#06D6A0] text-slate-950 hover:bg-[#0CEBB2]">
-                  <a href="#contact">Request a custom quote</a>
-                </Button>
                 <Button
                   asChild
                   size="lg"
-                  variant="outline"
-                  className="border-white/30 text-white hover:bg-white/10"
+                  className="bg-[#06D6A0] text-slate-950 hover:bg-[#0CEBB2]"
                 >
+                  <a href="#contact">Request a custom quote</a>
+                </Button>
+                <Button asChild size="lg" variant="outline">
                   <Link to="/rates">Explore our pricing philosophy</Link>
                 </Button>
               </div>
@@ -139,23 +150,34 @@ export function HomePage() {
                 Trusted by operators who want their payments to look as polished
                 as their brand.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="glass-card space-y-6">
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={fadeUp}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+              className="glass-card space-y-6"
+            >
               <div className="space-y-3">
                 <p className="text-sm uppercase tracking-[0.3em] text-white/60">
                   What you get
                 </p>
-                <h2 className="text-2xl font-semibold">A pricing strategy, not just a rate.</h2>
+                <h2 className="text-2xl font-semibold">
+                  A pricing strategy, not just a rate.
+                </h2>
               </div>
               <ul className="space-y-4 text-sm text-white/80">
                 <li className="flex items-start gap-3">
                   <span className="mt-1 h-2 w-2 rounded-full bg-[#06D6A0]" />
-                  Statement review with clarity on hidden fees and processing flow.
+                  Statement review with clarity on hidden fees and processing
+                  flow.
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="mt-1 h-2 w-2 rounded-full bg-[#06D6A0]" />
-                  Pricing shaped around your ticket size, volume, and risk profile.
+                  Pricing shaped around your ticket size, volume, and risk
+                  profile.
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="mt-1 h-2 w-2 rounded-full bg-[#06D6A0]" />
@@ -166,19 +188,28 @@ export function HomePage() {
                 We keep our rates private because every business deserves a
                 strategy that fits them — not a template built for everyone else.
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       <section className="relative bg-slate-950 px-4 py-16 sm:px-6">
         <div className="mx-auto w-full max-w-6xl">
-          <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr]">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeUp}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="grid gap-8 lg:grid-cols-[1fr_1.1fr]"
+          >
             <div className="space-y-4">
               <p className="text-sm uppercase tracking-[0.3em] text-[#06D6A0]">
                 Why Walrus
               </p>
-              <h2 className="text-3xl font-semibold">Luxury-grade payments, built for operators.</h2>
+              <h2 className="text-3xl font-semibold">
+                Luxury-grade payments, built for operators.
+              </h2>
               <p className="text-white/70">
                 We blend fintech infrastructure with concierge service. Think
                 meticulous onboarding, transparent statements, and pricing that
@@ -192,36 +223,58 @@ export function HomePage() {
                     <CardTitle className="text-white">{pillar.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-sm text-white/70">{pillar.description}</p>
+                    <p className="text-sm text-white/70">
+                      {pillar.description}
+                    </p>
                   </CardContent>
                 </Card>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       <section className="bg-slate-900/80 px-4 py-16 sm:px-6">
         <div className="mx-auto w-full max-w-6xl space-y-10">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeUp}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between"
+          >
             <div className="space-y-3">
               <p className="text-sm uppercase tracking-[0.3em] text-white/60">
                 Built for your world
               </p>
-              <h2 className="text-3xl font-semibold">Industries that demand finesse.</h2>
+              <h2 className="text-3xl font-semibold">
+                Industries that demand finesse.
+              </h2>
             </div>
-            <Button asChild variant="ghost" className="text-[#06D6A0] hover:bg-white/5">
+            <Button asChild variant="ghost" className="text-[#06D6A0]">
               <Link to="/contact">Let&apos;s talk</Link>
             </Button>
-          </div>
+          </motion.div>
           <div className="grid gap-6 md:grid-cols-2">
             {industries.map((industry) => (
-              <Card key={industry.name} className="glass-card border-white/10">
-                <CardContent className="space-y-2 pt-6">
-                  <p className="text-lg font-semibold text-white">{industry.name}</p>
-                  <p className="text-sm text-white/70">{industry.detail}</p>
-                </CardContent>
-              </Card>
+              <motion.div
+                key={industry.name}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={fadeUp}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
+                <Card className="glass-card border-white/10">
+                  <CardContent className="space-y-2 pt-6">
+                    <p className="text-lg font-semibold text-white">
+                      {industry.name}
+                    </p>
+                    <p className="text-sm text-white/70">{industry.detail}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -229,27 +282,45 @@ export function HomePage() {
 
       <section className="bg-slate-950 px-4 py-16 sm:px-6">
         <div className="mx-auto w-full max-w-6xl space-y-10">
-          <div className="space-y-4">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeUp}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="space-y-4"
+          >
             <p className="text-sm uppercase tracking-[0.3em] text-[#06D6A0]">
               The Walrus signature
             </p>
-            <h2 className="text-3xl font-semibold">Pricing clarity with quiet confidence.</h2>
+            <h2 className="text-3xl font-semibold">
+              Pricing clarity with quiet confidence.
+            </h2>
             <p className="text-white/70">
               We don&apos;t publish rates. We build them. Our team studies your
               statement, listens to your goals, and designs a plan that your
               competitors don&apos;t want you to know about.
             </p>
-          </div>
+          </motion.div>
           <div className="grid gap-6 lg:grid-cols-3">
             {testimonials.map((item) => (
-              <Card key={item.name} className="glass-card border-white/10">
-                <CardContent className="space-y-4 pt-6">
-                  <p className="text-sm text-white/80">“{item.quote}”</p>
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50">
-                    {item.name}
-                  </p>
-                </CardContent>
-              </Card>
+              <motion.div
+                key={item.name}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={fadeUp}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
+                <Card className="glass-card border-white/10">
+                  <CardContent className="space-y-4 pt-6">
+                    <p className="text-sm text-white/80">“{item.quote}”</p>
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50">
+                      {item.name}
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -257,20 +328,36 @@ export function HomePage() {
 
       <section id="contact" className="bg-slate-900 px-4 py-16 sm:px-6">
         <div className="mx-auto w-full max-w-6xl">
-          <div className="mb-10 space-y-4">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeUp}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="mb-10 space-y-4"
+          >
             <p className="text-sm uppercase tracking-[0.3em] text-[#06D6A0]">
               Ready for your quote?
             </p>
-            <h2 className="text-3xl font-semibold">Tell us about your business.</h2>
+            <h2 className="text-3xl font-semibold">
+              Tell us about your business.
+            </h2>
             <p className="text-white/70">
               The fastest way to uncover a better pricing strategy is to share a
               few details. We&apos;ll respond with a tailored proposal and zero
               pressure.
             </p>
-          </div>
-          <div className="glass-card border-white/10">
+          </motion.div>
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={fadeUp}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="glass-card border-white/10"
+          >
             <ContactForm />
-          </div>
+          </motion.div>
         </div>
       </section>
     </div>
